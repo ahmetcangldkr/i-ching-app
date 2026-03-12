@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "I Ching",
+    "slug": "i-ching-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/snack-icon.png",
+    "android": {
+      "package": "com.iching.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/snack-icon.png",
+        "backgroundColor": "#0a0805"
+      }
+    }
+  }
+}
