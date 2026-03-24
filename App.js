@@ -302,11 +302,37 @@ function DrawScreen({ onComplete, drawCount }) {
 
       <TouchableOpacity onPress={drawToken} activeOpacity={0.8}>
         <Animated.View style={{ transform: [{ translateX: shakeX }] }}>
-          <View style={{ width: 130, height: 130, borderRadius: 65, backgroundColor: '#3a2510', borderWidth: 2, borderColor: '#8b6420', alignItems: 'center', justifyContent: 'center', shadowColor: '#d4a04a', shadowOpacity: 0.2, shadowRadius: 20 }}>
-            <Text style={{ fontSize: 48 }}>🎒</Text>
+          {/* Torba */}
+          <View style={{ width: 130, height: 150, alignItems: 'center', justifyContent: 'flex-end' }}>
+            {/* İp / bağlama */}
+            <View style={{ position: 'absolute', top: 0, alignItems: 'center' }}>
+              <View style={{ width: 2, height: 18, backgroundColor: '#8b6420' }} />
+              <View style={{ flexDirection: 'row', gap: 10 }}>
+                <View style={{ width: 2, height: 14, backgroundColor: '#8b6420', transform: [{ rotate: '-15deg' }] }} />
+                <View style={{ width: 2, height: 14, backgroundColor: '#8b6420', transform: [{ rotate: '15deg' }] }} />
+              </View>
+            </View>
+            {/* Torba gövdesi */}
+            <View style={{
+              width: 110, height: 110,
+              borderRadius: 55,
+              backgroundColor: '#5a3510',
+              borderWidth: 2, borderColor: '#8b6420',
+              alignItems: 'center', justifyContent: 'center',
+              shadowColor: '#d4a04a', shadowOpacity: 0.3, shadowRadius: 15,
+              overflow: 'hidden',
+            }}>
+              {/* Kadife doku efekti */}
+              <View style={{ position: 'absolute', top: 8, left: 8, width: 30, height: 30, borderRadius: 15, backgroundColor: 'rgba(255,200,100,0.08)' }} />
+              <View style={{ position: 'absolute', bottom: 15, right: 12, width: 20, height: 20, borderRadius: 10, backgroundColor: 'rgba(0,0,0,0.15)' }} />
+              {/* Sembol */}
+              <Text style={{ fontSize: 36, color: 'rgba(212,160,74,0.6)' }}>☯</Text>
+            </View>
+            {/* Alt gölge */}
+            <View style={{ width: 80, height: 8, borderRadius: 4, backgroundColor: 'rgba(0,0,0,0.3)', marginTop: 4 }} />
           </View>
-          <View style={{ position: 'absolute', bottom: 8, left: 0, right: 0, alignItems: 'center' }}>
-            <Text style={{ fontSize: 20, color: '#c8a97e' }}>{drawn.length < 6 ? '☯' : '✓'}</Text>
+          <View style={{ position: 'absolute', bottom: 16, left: 0, right: 0, alignItems: 'center' }}>
+            <Text style={{ fontSize: 16, color: '#c8a97e' }}>{drawn.length < 6 ? '' : '✓'}</Text>
           </View>
           {drawn.length < 6 && (
             <View style={{ position: 'absolute', top: -6, right: -6, backgroundColor: '#d4a04a', borderRadius: 12, width: 26, height: 26, alignItems: 'center', justifyContent: 'center' }}>
@@ -457,7 +483,7 @@ function ResultScreen({ lines, hexagram, onRestart, onHome }) {
         </View>
 
         <TouchableOpacity onPress={onRestart} style={[styles.btn, { width: '100%', marginBottom: 10 }]} activeOpacity={0.7}>
-          <Text style={[styles.btnTxt, { textAlign: 'center' }]}>Yeniden Fal Bak</Text>
+          <Text style={[styles.btnTxt, { textAlign: 'center' }]}>Yeniden Yorumla</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={onHome} style={[styles.btn, { width: '100%', borderColor: 'rgba(122,155,181,0.3)' }]} activeOpacity={0.7}>
           <Text style={[styles.btnTxt, { color: '#7a9bb5', textAlign: 'center' }]}>Ana Sayfa</Text>
