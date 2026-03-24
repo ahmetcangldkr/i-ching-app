@@ -127,7 +127,7 @@ function IntroScreen({ onStart }) {
 function MeditationScreen({ onReady }) {
   const [breathPhase, setBreathPhase] = useState('in');
   const [done, setDone] = useState(false);
-  const [countdown, setCountdown] = useState(24);
+  const [countdown, setCountdown] = useState(8);
   const fade = useRef(new Animated.Value(0)).current;
   const orbScale = useRef(new Animated.Value(0.5)).current;
 
@@ -147,9 +147,9 @@ function MeditationScreen({ onReady }) {
 
   useEffect(() => {
     const sequence = [
-      { phase: 'in', dur: 4000, scale: 1 },
-      { phase: 'hold', dur: 3000, scale: 1 },
-      { phase: 'out', dur: 5000, scale: 0.5 },
+      { phase: 'in', dur: 3000, scale: 1 },
+      { phase: 'hold', dur: 2000, scale: 1 },
+      { phase: 'out', dur: 3000, scale: 0.5 },
     ];
     let idx = 0, count = 0, timeout;
     const run = () => {
@@ -163,7 +163,7 @@ function MeditationScreen({ onReady }) {
       timeout = setTimeout(() => {
         idx = (idx + 1) % sequence.length;
         if (idx === 0) count++;
-        if (count >= 2) { setDone(true); return; }
+        if (count >= 1) { setDone(true); return; }
         run();
       }, step.dur);
     };
