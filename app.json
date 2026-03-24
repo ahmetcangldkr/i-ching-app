@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "I Ching TR",
-    "slug": "i-ching-tr",
+    "slug": "i-ching-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/snack-icon.png",
